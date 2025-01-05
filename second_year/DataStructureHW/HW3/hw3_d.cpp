@@ -60,7 +60,7 @@ class LinkedBinaryTree {
     void printHeaderList() {
         for (const auto &pair : headerList) {
             std::cout << pair.first << ": ";
-            const std::vector<std::shared_ptr<Node>> &nodes = pair.second;
+            const std::vector<std::shared_ptr<Node>> &nodes{pair.second};
             for (const auto &node : nodes) {
                 std::cout << node->data << " ";
             }

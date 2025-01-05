@@ -1,11 +1,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-#include <limits>
 #include <memory>
-#include <queue>
-#include <unordered_map>
-#include <vector>
 
 template <class T>
 class Node {
