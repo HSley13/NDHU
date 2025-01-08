@@ -1,8 +1,6 @@
 #include <algorithm>
 #include <iostream>
 #include <list>
-#include <queue>
-#include <stack>
 #include <vector>
 
 class Graph {
@@ -14,8 +12,6 @@ class Graph {
     std::list<std::vector<int>> Adjacent_List(int u);
     void PrintAdjacentMatrix();
     void PrintAdjacentList();
-    void BFS(int start_vertex);
-    void DFS(int start_vertex);
     void KruskalMST();
 
   private:
@@ -145,53 +141,6 @@ void Graph::PrintAdjacentList() {
     for (int i{0}; i < vertices.size(); i++) {
         for (std::vector<int> &it : adjacent_list[i]) {
             std::cout << "(" << i << ", " << it[0] << ", " << it[1] << ")" << std::endl;
-        }
-    }
-}
-
-void Graph::BFS(int start_vertex) {
-    std::vector<bool> visited(NumberVertices, false);
-    std::queue<int> q;
-
-    visited[start_vertex] = true;
-    q.push(start_vertex);
-
-    while (!q.empty()) {
-        int v = q.front();
-        std::cout << v << std::endl;
-        q.pop();
-
-        for (std::vector<int> &it : adjacent_list[v]) {
-            if (!visited[it[0]]) {
-                visited[it[0]] = true;
-                q.push(it[0]);
-            }
-        }
-    }
-}
-
-void Graph::DFS(int start_vertex) {
-    std::vector<bool> visited(NumberVertices, false);
-    std::stack<int> s;
-
-    s.push(start_vertex);
-
-    while (!s.empty()) {
-        int v = s.top();
-        s.pop();
-
-        if (!visited[v]) {
-            visited[v] = true;
-            std::cout << v << std::endl;
-        }
-
-        std::list<std::vector<int>> &adj = adjacent_list[v];
-        std::vector<std::vector<int>> reversed_adj{adj.rbegin(), adj.rend()};
-
-        for (std::vector<int> &neighbor : reversed_adj) {
-            if (!visited[neighbor[0]]) {
-                s.push(neighbor[0]);
-            }
         }
     }
 }

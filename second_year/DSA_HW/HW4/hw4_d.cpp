@@ -139,7 +139,6 @@ int main(void) {
         g.InsertEdge(u, v, weight);
     }
 
-    int start_vertex{0};
-    std::cout << "Shortest paths from vertex " << start_vertex << ":\n";
-    g.DijkstraShortestPath(start_vertex);
+    std::cout << "Shortest paths from vertex " << 0 << ":\n";
+    g.DijkstraShortestPath(0);
 }
